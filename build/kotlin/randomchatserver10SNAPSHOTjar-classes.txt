@@ -1,0 +1,1 @@
+C:\my_Project\random-chat-server\build\classes\kotlin\main\an\example\randomchat\App.class
