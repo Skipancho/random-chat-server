@@ -56,6 +56,22 @@ class RandomChatManager(
         randomChatMessageHandler.onMessage(sender,message)
     }
 
+    fun closeSession(userId: Long){
+        val abandoner = userRepository.findById(userId)
+
+        abandoner?.let {
+            randomChatSessionManager.removeSession(abandoner)
+            userRepository.deleteUser(abandoner)
+
+            val roomAbandoned = randomChatRoomManager
+                .removeUserFromRoom(abandoner)
+
+            roomAbandoned?.let {
+                sendQuitMessage(roomAbandoned,abandoner)
+            }
+        }
+    }
+
     private fun sendQuitMessage(room: RandomChatRoom, abandoner : User){
         val nickName = abandoner.nickName
         val quitMessage = ChatMessage(NOTICE,"${nickName}님이 나갔습니다.")
