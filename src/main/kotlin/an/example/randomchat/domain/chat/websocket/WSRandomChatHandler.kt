@@ -53,7 +53,7 @@ class WSRandomChatHandler(
         get() : String? {
             return handshakeHeaders["sec-websocket-protocol"]
                 ?.lastOrNull()
-                ?.replace("access-token","")
+                ?.replace("access_token","")
                 ?.trim()
         }
 }

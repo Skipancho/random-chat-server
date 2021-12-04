@@ -6,7 +6,7 @@ import com.auth0.jwt.interfaces.DecodedJWT
 import java.util.*
 
 object JWTUtil {
-    private const val ISSUER = "Parayo"
+    private const val ISSUER = "RandomChat"
     private const val SUBJECT = "Auth"
     private const val EXPIRE_TIME = 60L * 60 * 2 * 1000 //2시간
     private const val REFRESH_EXPIRE_TIME = 60L * 60 * 24 * 30 * 1000 //30일
